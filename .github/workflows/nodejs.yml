@@ -1,28 +1,28 @@
 name: Node.js CI
 
 on:
-push:
-branches: ["escobar"] # o tu apellido
+  push:
+    branches:
+      - "escobar" 
 
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-steps:
-- name: Checkout código
-uses: actions/checkout@v3
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
 
-- name: Instalar Node.js
-uses: actions/setup-node@v3
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-with:
-node-version: '18'
+      - name: Instalar dependencias
+        run: npm install
 
-- name: Instalar dependencias
-run: npm install
+      - name: Dar permisos a Jest
+        run: chmod +x ./node_modules/jest/bin/jest.js
 
-- name: Dar permisos a Jest
-run: chmod +x ./node_modules/jest/bin/jest.js
-
-- name: Ejecutar tests
-run: npm test
+      - name: Ejecutar tests
+        run: npm test
