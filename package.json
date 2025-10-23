@@ -1,0 +1,17 @@
+{
+"name": "escobar",
+"version": "1.0.0",
+"main": "app.js",
+"scripts": {
+"start": "node app.js",
+
+"test": "node ./node_modules/jest/bin/jest.js"
+},
+"keywords": [],
+"author": "",
+"license": "ISC",
+"description": "",
+"devDependencies": {
+"jest": "^30.2.0"
+}
+}
